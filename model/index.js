@@ -16,6 +16,8 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 const db = {};
 
+// TODO - test comment
+
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
