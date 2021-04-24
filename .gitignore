@@ -1,0 +1,8 @@
+.idea
+/node_modules
+/config/config.env
+/config/db.config.js
+/docker-build
+.iml
+docker-build/docker-compose.yml
+10_RESOURCES
