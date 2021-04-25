@@ -19,6 +19,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.devtest = require("./DevTest")(sequelize, Sequelize);
+db.devtest = require("./DbTest")(sequelize, Sequelize);
 
 module.exports = db;

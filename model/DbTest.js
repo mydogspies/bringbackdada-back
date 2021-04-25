@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const DevTest = sequelize.define("devtest", {
+    return sequelize.define("dbtest", {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true
@@ -8,6 +8,4 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         }
     });
-
-    return DevTest;
 };
