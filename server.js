@@ -19,7 +19,7 @@ db.sequelize.sync({force : true});
 const app = express();
 
 const corsOptions = {
-    origin: 'http://188.166.68.124',
+    origin: 'http://10.110.0.2',
     optionsSuccessStatus: 200
 };
 
