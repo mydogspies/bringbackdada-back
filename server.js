@@ -11,7 +11,7 @@ dotenv.config({path: './config/config.env'});
 
 // connect to db
 db.sequelize.sync().then(function() {
-    server.listen(port);
+    server.listen(3306);
     server.on('error', onError);
     server.on('listening', onListening);
 });
