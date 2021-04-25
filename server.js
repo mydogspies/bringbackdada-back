@@ -9,7 +9,8 @@ const db = require('./models');
 // load env vars
 dotenv.config({path: './config/config.env'});
 
-
+// connect to db
+db.sequelize.sync();
 
 // TODO import routes
 // import the routes
@@ -45,12 +46,7 @@ const server = app.listen(
     () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.blue.bold) // TODO refactor out console.log
 );
 
-// connect to db
-db.sequelize.sync().then(function() {
-    // server.listen(PORT);
-    server.on('error', onError);
-    server.on('listening', onListening);
-});
+
 
 // handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
