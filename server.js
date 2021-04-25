@@ -9,12 +9,7 @@ const db = require('./models');
 // load env vars
 dotenv.config({path: './config/config.env'});
 
-// connect to db
-db.sequelize.sync().then(function() {
-    server.listen(3306);
-    server.on('error', onError);
-    server.on('listening', onListening);
-});
+
 
 // TODO import routes
 // import the routes
@@ -47,12 +42,19 @@ app.use(morgan('short'));
 const PORT = process.env.PORT || 5010;
 const server = app.listen(
     PORT,
-    () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.blue.bold)
+    () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.blue.bold) // TODO refactor out console.log
 );
+
+// connect to db
+db.sequelize.sync().then(function() {
+    // server.listen(PORT);
+    server.on('error', onError);
+    server.on('listening', onListening);
+});
 
 // handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-    console.log(`Error: ${err.message}`.red);
+    console.log(`Error: ${err.message}`.red); // TODO refactor out console.log
     // close server and exit
     server.close(() => process.exit(1));
 })
