@@ -4,13 +4,17 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 // const errorHandler = require('./middleware/error');
-const db = require('./model/');
+const db = require('./models');
 
 // load env vars
 dotenv.config({path: './config/config.env'});
 
 // connect to db
-db.sequelize.sync({force : true});
+db.sequelize.sync().then(function() {
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+});
 
 // TODO import routes
 // import the routes
@@ -30,9 +34,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // http logging during development
-if(process.env.NODE_ENV !== 'development') {
-    app.use(morgan('dev'));
-}
+app.use(morgan('short'));
 
 // TODO add routes
 // mount routers
