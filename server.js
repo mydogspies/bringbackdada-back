@@ -10,7 +10,7 @@ const db = require('./model/');
 dotenv.config({path: './config/config.env'});
 
 // connect to db
-db.sequelize.sync();
+db.sequelize.sync({force : true});
 
 // TODO import routes
 // import the routes
