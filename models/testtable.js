@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   TestTable.init({
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     test: DataTypes.STRING
   }, {
     sequelize,
