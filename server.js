@@ -18,13 +18,14 @@ db.sequelize.sync();
 // define express app
 const app = express();
 
-const corsOptions = {
-    origin: 'http://10.110.0.2',
-    optionsSuccessStatus: 200
-};
-
-// use cors
-app.use(cors(corsOptions));
+// cors
+if (process.env.NODE_ENV === 'production') {
+    const corsOptions = {
+        origin: 'http://10.110.0.2',
+        optionsSuccessStatus: 200
+    };
+    app.use(cors(corsOptions));
+}
 
 // define body parser
 app.use(express.json());
@@ -45,8 +46,6 @@ const server = app.listen(
     PORT,
     () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.blue.bold) // TODO refactor out console.log
 );
-
-
 
 // handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
