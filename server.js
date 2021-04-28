@@ -3,7 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
-// const errorHandler = require('./middleware/error');
+const errorHandler = require('./middleware/error');
 const db = require('./models');
 
 // load env vars
@@ -12,8 +12,8 @@ dotenv.config({path: './config/config.env'});
 // connect to db
 db.sequelize.sync();
 
-// TODO import routes
 // import the routes
+const status = require('./routes/status');
 
 // define express app
 const app = express();
@@ -33,12 +33,11 @@ app.use(express.json());
 // http logging during development
 app.use(morgan('short'));
 
-// TODO add routes
 // mount routers
+app.use('/api/v1/status', status);
 
-// TODO add error handler
 // error handler
-// app.use(errorHandler);
+app.use(errorHandler);
 
 // server start
 const PORT = process.env.PORT || 5010;
