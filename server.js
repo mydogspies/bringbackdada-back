@@ -6,7 +6,7 @@ const colors = require('colors');
 const errorHandler = require('./middleware/error');
 const db = require('./models');
 
-// testing full deployment and now and never 12345
+// testing full deployment and now and never 123456
 
 // load env vars
 dotenv.config({path: './config/config.env'});
