@@ -6,7 +6,7 @@ const colors = require('colors');
 const errorHandler = require('./middleware/error');
 const db = require('./models');
 
-// testing full deployment
+// testing full deployment and even more
 
 // load env vars
 dotenv.config({path: './config/config.env'});
