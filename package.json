@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "NODE_ENV=production server.js",
-    "prod-update": "NODE_ENV=production server.js",
+    "prod": "NODE_ENV=production server",
+    "prod-update": "NODE_ENV=production server",
     "dev": "NODE_ENV=development nodemon server"
   },
   "keywords": [],
