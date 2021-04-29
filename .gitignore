@@ -1,7 +1,5 @@
 .idea
 /node_modules
-/config/config.env
-/config/db.config.js
 /config/config.json
 /docker-build
 .iml
